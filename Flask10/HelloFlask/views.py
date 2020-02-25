@@ -1,10 +1,9 @@
 from flask import Flask
-app = Flask(__name__)
-wsgi_app = app.wsgi_app
+from HelloFlask import app
 
 @app.route('/')
-def hello():
-    title="企人"
+@app.route('/home')
+def home():
     return "企人"
 
 @app.route('/liao')
@@ -27,3 +26,4 @@ if __name__ == '__main__':
     except ValueError:
         PORT = 5555
     app.run(HOST, PORT)
+
